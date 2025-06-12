@@ -4,7 +4,16 @@ This is an extension helper for the TI4 Twitch Extension. It provides a dashboar
 
 Go to the most recent releases section and download the appropriate installer for your OS. 
 
-https://github.com/RobertGuglielmino/ti4-extension-buddy/releases
+https://github.com/RobertGuglielmino/ti4-extension-buddy-v2/releases
+
+
+## HOW IT WORKS
+
+This is how the setup for everything works. For this version, you'll need to set up this application, as well as [Streamer Buddy](https://github.com/TI4-Online/TI4-Streamer-Buddy/tree/main).
+
+![image](https://github.com/user-attachments/assets/31d4fcf9-1554-4390-a487-9df12e9a089e)
+
+At some point, they will unite into one application. Today is not that day.
 
 ## WINDOWS
 
