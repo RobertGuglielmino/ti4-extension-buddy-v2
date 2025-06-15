@@ -861,11 +861,11 @@ const TECHNOLOGY_COLOR = {
   "AI Development Algorithm": "red",
   "Advanced Carrier II": "white",
   "Aerie Hololattice": "yellow",
-  Aetherstream: "blue",
+  "Aetherstream": "blue",
   "Antimass Deflectors": "blue",
   "Assault Cannon": "red",
   "Bio-Stims": "green",
-  Bioplasmosis: "green",
+  "Bioplasmosis": "green",
   "Carrier II": "white",
   "Chaos Mapping": "blue",
   "Crimson Legionnaire II": "white",
@@ -905,7 +905,7 @@ const TECHNOLOGY_COLOR = {
   "Memoria II": "white",
   "Mirror Computing": "yellow",
   "Neural Motivator": "green",
-  Neuroglaive: "green",
+  "Neuroglaive": "green",
   "Non-Euclidean Shielding": "red",
   "Nullification Field": "yellow",
   "PDS II": "white",
@@ -914,7 +914,7 @@ const TECHNOLOGY_COLOR = {
   "Predictive Intelligence": "yellow",
   "Production Biomes": "green",
   "Prototype War Sun II": "white",
-  Psychoarchaeology: "green",
+  "Psychoarchaeology": "green",
   "Quantum Datahub Node": "yellow",
   "Salvage Operations": "yellow",
   "Sarween Tools": "yellow",
@@ -927,15 +927,15 @@ const TECHNOLOGY_COLOR = {
   "Spec Ops II": "white",
   "Strike Wing Alpha II": "white",
   "Super-Dreadnought II": "white",
-  Supercharge: "red",
+  "Supercharge": "red",
   "Temporal Command Suite": "yellow",
   "Transit Diodes": "yellow",
   "Transparasteel Plating": "green",
   "Valefar Assimilator X": "white",
   "Valefar Assimilator Y": "white",
   "Valkyrie Particle Weave": "red",
-  Voidwatch: "green",
-  Vortex: "red",
+  "Voidwatch": "green",
+  "Vortex": "red",
   "Wormhole Generator": "blue",
   "X-89 Bacterial Weapon": "green",
   "Yin Spinner": "green",
@@ -1139,6 +1139,7 @@ function getPlayersV2(data) {
     maxCommodities: [],
     actionCards: [],
     promissoryNotes: [],
+    secretsInHand: [],
     leaders: { agent: [], commander: [], hero: [] },
     active: 0,
     speaker: 0,
@@ -1182,10 +1183,11 @@ function getPlayersV2(data) {
     playerArray.actionCards[index] = player.handSummary.hasOwnProperty("Action")
       ? player.handSummary.Actions
       : 0;
-    playerArray.promissoryNotes[index] = player.handSummary.hasOwnProperty(
-      "Promissory"
-    )
+    playerArray.promissoryNotes[index] = player.handSummary.hasOwnProperty("Promissory")
       ? player.handSummary.Promissory
+      : 0;
+    playerArray.secretsInHand[index] = player.handSummary.hasOwnProperty("Secret")
+      ? player.handSummary.Secret
       : 0;
     playerArray.leaders.agent[index] = player.leaders.agent === "unlocked";
     playerArray.leaders.commander[index] =
