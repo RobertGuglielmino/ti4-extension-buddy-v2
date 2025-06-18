@@ -943,6 +943,7 @@ const TECHNOLOGY_COLOR = {
 };
 
 const IS_FACTION_TECHNOLOGY = [
+  "Advanced Carrier II",
   "Agency Supply Network",
   "Aerie Hololattice",
   "Aetherstream",
@@ -1023,35 +1024,21 @@ const TECH_TREE = {
     "X-89 Bacterial Weapon",
   ],
   unit: [
-    "Advanced Carrier II",
     "Carrier II",
-    "Crimson Legionnaire II",
     "Cruiser II",
     "Destroyer II",
-    "Dimensional Tear II",
     "Dreadnought II",
-    "Exotrireme II",
     "Fighter II",
-    "Floating Factory II",
-    "Hel-Titan II",
-    "Hybrid Crystal Fighter II",
     "Infantry II",
-    "Letani Warrior II",
-    "Memoria II",
     "PDS II",
-    "Prototype War Sun II",
-    "Saturn Engine II",
-    "Space Dock II",
-    "Spec Ops II",
-    "Strike Wing Alpha II",
-    "Super-Dreadnought II",
-    "War Sun",
+    "SpaceDock II",
+    "WarSun",
   ],
   faction: [
-    "Agency Supply Network",
     "Advanced Carrier II",
     "Aerie Hololattice",
     "Aetherstream",
+    "Agency Supply Network",
     "Bioplasmosis",
     "Chaos Mapping",
     "Crimson Legionnaire II",
@@ -1075,12 +1062,10 @@ const TECH_TREE = {
     "Magmus Reactor",
     "Memoria II",
     "Mirror Computing",
-    "Neural Motivator",
     "Neuroglaive",
     "Non-Euclidean Shielding",
     "Nullification Field",
     "Pre-Fab Arcologies",
-    "Predictive Intelligence",
     "Production Biomes",
     "Prototype War Sun II",
     "Quantum Datahub Node",
@@ -1186,8 +1171,8 @@ function getPlayersV2(data) {
     playerArray.promissoryNotes[index] = player.handSummary.hasOwnProperty("Promissory")
       ? player.handSummary.Promissory
       : 0;
-    playerArray.secretsInHand[index] = player.handSummary.hasOwnProperty("Secret")
-      ? player.handSummary.Secret
+    playerArray.secretsInHand[index] = player.handSummary.hasOwnProperty("Secret Objectives")
+      ? player.handSummary["Secret Objectives"]
       : 0;
     playerArray.leaders.agent[index] = player.leaders.agent === "unlocked";
     playerArray.leaders.commander[index] =

@@ -1,6 +1,6 @@
 {
-  "name": "ti4-extension-buddy",
-  "version": "1.0.0",
+  "name": "ti4-extension-buddy-v2",
+  "version": "1.0.1",
   "description": "Helper application for TTPG Twitch Extension",
   "main": "main.js",
   "scripts": {
