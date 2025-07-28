@@ -373,6 +373,8 @@ function startExpressServer() {
       const gameData = transformTTPGtoAppV2(response.data);
       signedJwt = await getNewSignedJWT();
 
+      console.log(response.data);
+
       const pubsubResult = await sendToPubSub(signedJwt, gameData);
     } catch (error) {
       console.error("Error fetching data from Streamer Buddy:", error);
@@ -1103,12 +1105,12 @@ function transformTTPGtoAppV2(data) {
 
 function getPlayersV2(data) {
   let playerArray = {
-    name: ["", "", "", "", "", ""],
-    faction: ["", "", "", "", "", ""],
-    color: ["", "", "", "", "", ""],
-    victoryPoints: ["", "", "", "", "", ""],
-    strategyCard: ["", "", "", "", "", ""],
-    strategyCardsFaceDown: ["", "", "", "", "", ""],
+    name: [],
+    faction: [],
+    color: [],
+    victoryPoints: [],
+    strategyCard: [],
+    strategyCardsFaceDown: [],
     technologies: {
       blue: [[], [], [], [], [], []],
       red: [[], [], [], [], [], []],
@@ -1131,13 +1133,12 @@ function getPlayersV2(data) {
   };
 
   data.players.forEach((player, index) => {
-    playerArray.name[index] = player.steamName;
-    playerArray.faction[index] = player.factionShort;
-    playerArray.color[index] = player.color;
-    playerArray.victoryPoints[index] = player.score;
-    playerArray.strategyCard[index] = player.strategyCards[0] || "";
-    playerArray.strategyCardsFaceDown[index] =
-      player.strategyCardsFaceDown[0] || "";
+    playerArray.name.push(player.steamName);
+    playerArray.faction.push(player.factionShort);
+    playerArray.color.push(player.color);
+    playerArray.victoryPoints.push(player.score);
+    playerArray.strategyCard.push(player.strategyCards[0] || "");
+    playerArray.strategyCardsFaceDown.push(player.strategyCardsFaceDown[0] || "");
     playerArray.technologies.blue[index] = TECH_TREE.blue.map((tech) =>
       player.technologies.includes(tech)
     );
